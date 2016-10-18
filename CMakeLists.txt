@@ -20,23 +20,8 @@ include_directories(
 )
 
 message("System is: " ${CMAKE_SYSTEM_PROCESSOR})
-if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-  if (CMAKE_SIZEOF_VOID_P EQUAL 4)
-    message("-- 32bit detected")
-    link_directories(lib/x86)
-  elseif (CMAKE_SIZEOF_VOID_P EQUAL 8)
-    message("-- 64bit detected")
-    link_directories(lib/x64)
-  endif ()
-else()
-  message("-- Non-linux platform detected but sorry we do not support :D")
-endif ()
+link_directories(lib/XU3)
 
-if (${CMAKE_SYSTEM_PROCESSOR} MATCHES "armv7l" )
-  message("-- " ${CMAKE_SYSTEM_PROCESSOR} " detected")
-  link_directories(lib/XU3)
-else ()
-endif ()
 
 link_libraries(
   ${OpenCV_LIBS}
